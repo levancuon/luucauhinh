@@ -1,0 +1,74 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Setting</h2>
+<form th:action="@{/formmail/update}" th:method="post" th:object="${form}">
+    <table>
+        <tr>
+            <td>
+                <label for="languages">Languages :</label>
+            </td>
+            <td>
+                <select id="languages" th:field="*{language}">
+                    <option name="languages" value="English" >English</option>
+                    <option name="languages" value="Vietnamese" >Vietnamese</option>
+                    <option name="languages" value="Japanese"  >Japanese</option>
+                    <option name="languages" value="Chinese"  >Chinese</option>
+                </select> <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pagesize">Page size :</label>
+            </td>
+            <td>
+                <select name="pagesize" id="pagesize" th:field="*{size}"> emails per page
+                    <option name="pagesize" value="5" >5</option>
+                    <option name="pagesize" value="10"  >10</option>
+                    <option name="pagesize" value="15"  >15</option>
+                    <option name="pagesize" value="20" >20</option>
+                    <option name="pagesize" value="25" >25</option>
+                    <option name="pagesize" value="50" >50</option>
+                    <option name="pagesize" value="100" >100</option>
+                </select> <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="spamsfiller">Spams filler :</label>
+            </td>
+            <td>
+                <input id="spamsfiller" type="checkbox" th:field="*{spamFiller}" > enable spams fillers
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="signature">Signature :</label>
+            </td>
+            <td>
+                <textarea name="signature" id="signature" cols="30" rows="10" th:field="*{signature}"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Update</button>
+            </td>
+            <td>
+                <a href="/formmail">Hủy</a>
+            </td>
+        </tr>
+
+
+
+    </table>
+
+</form>
+</body>
+</html>
